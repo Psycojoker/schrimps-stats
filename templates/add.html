@@ -1,0 +1,33 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Schrimps data app{% endblock %}
+
+{% block content %}
+<body class="container">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<h1>Adding schrimps aquarium data</h1>
+
+<form method="post">
+    {{ wtf.form_field(form.ph) }}
+    {{ wtf.form_field(form.ph_band) }}
+    {{ wtf.form_field(form.gh) }}
+    {{ wtf.form_field(form.gh_band) }}
+    {{ wtf.form_field(form.kh) }}
+    {{ wtf.form_field(form.no2) }}
+    {{ wtf.form_field(form.no3) }}
+    {{ wtf.form_field(form.cl) }}
+    {{ wtf.form_field(form.co2) }}
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}
